@@ -1,191 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
-
 	<head>
-
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
 
-		<title>Grayscale - Start Bootstrap Theme</title>
+		<title>Search for best odds</title>
+		<meta name="description" content="The HTML5 Herald">
+		<meta name="author" content="SitePoint">
 
-		<!-- Bootstrap core CSS -->
-		<link href="/static/bookies/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Angular JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
 
-		<!-- Custom styles for this template -->
-		<link href="/static/bookies/css/grayscale.min.css" rel="stylesheet">
-
-		<!-- Custom fonts for this template -->
-		<link href="/static/bookies/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-		<link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
-
-
-		<!-- AngularJS -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		<!-- BootStrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+		<style>
+.red {
+	color: white;
+	background-color: #f44336;
+}
+.green {
+	color: white;
+	background-color: #4CAF50;
+}
+.blue {
+	color: white;
+	background-color: #008CBA;
+}
+.block {
+	border-radius: 5px;
+	border: none;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+}
+.team{
+	background-color: #e7e7e7;
+}
+		</style>
 	</head>
 
-	<body id="page-top">
-
-		<!-- Navigation -->
-		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-			<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="#page-top">Taking the best bet</a>
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-					Menu
-					<i class="fa fa-bars"></i>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="#about">About</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="#data">Data</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-						</li>
-					</ul>
-				</div>
+	<body>
+		<div class="container">
+			<div class="page-header jumbotron">
+				<h1 class="text-center">Bookies</h1>
 			</div>
-		</nav>
-
-		<!-- Intro Header -->
-		<header class="masthead">
-			<div class="intro-body">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<h1 class="brand-heading">Taking the Best Bet</h1>
-							<p class="intro-text">A powerful web application that help you make the decision when taking the bet.</p>
-							<a href="#about" class="btn btn-circle js-scroll-trigger">
-								<i class="fa fa-angle-double-down animated"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<!-- About Section -->
-		<section id="about" class="content-section text-center">
-			<div class="container">
+		</div>
+		{% verbatim %}
+		<div class="container" ng-app="myApp" ng-controller="myCtrl">
+			<div>
 				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2>About this Web App</h2>
-						<p>This web app is a project that integrates machine learning and the big data analytics tools.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Data Section -->
-		<section id="data" class="data-section content-section text-center">
-			<div class="container">
-				<h2>Search for odds</h2>
-				<div class="row">
-					<div class="col-lg-4">
-						Region: &nbsp &nbsp
-						<select ng-model="myVar" class="selectpicker">
-							<option value="">
-							<option value="dogs">Australia
-							<option value="tuts">UK
+					<div class="input-group col-sm-3">
+						<span class="input-group-addon">Region</span>
+						<select ng-model="selectedRegion" ng-options="x.name for x in regions" class="selectpicker">
 						</select>
 					</div>
-					<div class="col-lg-4">
-						Region: &nbsp &nbsp
-						<select ng-model="myVar" class="selectpicker">
-							<option value="">
-							<option value="dogs">Australia
-							<option value="tuts">UK
+					<div class="input-group col-sm-6">
+						<span class="input-group-addon">Sport</span>
+						<select ng-model="selectedSport" ng-options="x.display_name for x in sports" class="selectpicker">
 						</select>
 					</div>
-					<div class="col-lg-4">
-						<button id="searchBtn" type="button" class="btn">Search</button>
-						&nbsp &nbsp
+					<div class="col-sm-3">
+						<button ng-click="searchOdds()" type="button" class="btn input-group-addon">Search</button>
 					</div>
-					<div class="row">
-						<br>
-						<br>
-					</div>
-
 				</div>
+
 				<div class="row">
-					<table class="table table-striped"> 
-						<tr><th>t1</th><th>t2</th></tr>
-						<tr><td>1</td><td>2</td></tr>
-						<tr><td>1</td><td>2</td></tr>
-					</table>
+					<br>
 				</div>
-				<div class="col-lg-8 mx-auto">
-
-					<ul>
-					</ul>
-				</div>
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">Site</th>
+							<th scope="col">TeamA wins</th>
+							<th scope="col">Tie</th>
+							<th scope="col">TeamB wins</th>
+						</tr>
+					</thead>
+					<tbody ng-repeat="e in events">
+						<tr>
+							<th>
+								<span class="team block">{{"TeamA-"+e.participants[0]}}</span>
+								vs
+								<span class="team block">{{"TeamB-"+e.participants[1]}}</span>
+								with safe odds:
+							</th>
+							<th ng-repeat="o in e.p_odds track by $index"><span class="blue block">{{o}}</span></th>
+						</tr>
+						<tr ng-repeat="(s, v) in e.sites">
+							<td>{{s}}</td>
+							<td ng-repeat="o in v.odds.h2h track by $index"><span class="{{bet(o, e.p_odds[$index])}}">{{+o}}</span><td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
-		</section>
-
-		<!-- Contact Section -->
-		<section id="contact" class="content-section text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 mx-auto">
-						<h2>Check source code</h2>
-						<ul class="list-inline banner-social-buttons">
-							<!--
-	       <li class="list-inline-item">
-	       <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
-	       <i class="fa fa-twitter fa-fw"></i>
-	       <span class="network-name">Twitter</span>
-	       </a>
-	       </li>
-							-->
-							<li class="list-inline-item">
-								<a href="https://github.com/wc2582/EECS6893_Big_Data_Analytics_Final_Project" class="btn btn-default btn-lg">
-									<i class="fa fa-github fa-fw"></i>
-									<span class="network-name">Github</span>
-								</a>
-							</li>
-							<!--
-	       <li class="list-inline-item">
-	       <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg">
-	       <i class="fa fa-google-plus fa-fw"></i>
-	       <span class="network-name">Google+</span>
-	       </a>
-	       </li>
-							-->
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Map Section -->
-		<div id="map"></div>
-
-		<!-- Footer -->
-		<footer>
-			<div class="container text-center">
-				<p> Taking the Best Bet 2017</p>
-			</div>
-		</footer>
-
-		<!-- Bootstrap core JavaScript -->
-		<script src="/static/bookies/vendor/jquery/jquery.min.js"></script>
-		<script src="/static/bookies/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-		<!-- Plugin JavaScript -->
-		<script src="/static/bookies/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-		<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIy-7HM3ANYuGIvxEaWdsB36Ax9uerj80"></script>
-
-		<!-- Custom scripts for this template -->
-		<script src="/static/bookies/js/grayscale.min.js"></script>
+		</div>
+		{% endverbatim %}
 		<script>
-$('document').ready(function(){
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+	$scope.regions = [{"name": "Australia", "value":"au"}, {"name":"UK", "value":"uk"}];
 	initialization();
 	function initialization() {
 		$.ajax({
@@ -194,38 +114,57 @@ $('document').ready(function(){
 			//dataType: "json",
 			url: 'ajax/init/',
 			success: function(data) {
-				console.log(data);
-				for (let game in data) {
-					console.log(game);
-				}	
+				$scope.sports = data['result']
 			},
 			error: function(data) {
 				console.log("error: " + data);
 				console.log(data.status, data.statusText, data.responseText);
 			}
 		});
-	}	
+	}
+	$scope.timeTranslate = function(unix_timestamp) {
+		let date = new Date(unix_timestamp*1000);
+		// Hours part from the timestamp
+		let hours = date.getHours();
+		// Minutes part from the timestamp
+		let minutes = "0" + date.getMinutes();
+		// Seconds part from the timestamp
+		let seconds = "0" + date.getSeconds();
 
-	$('#searchBtn').click(function() {
-		let region = "au";  //placeholder
-		let sport =  "SPL"; //placeholder
+		// Will display time in 10:30:23 format
+		let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+		return formattedTime;
+	}
+	$scope.bet = function(val, odds) {
+		return parseFloat(val) >= parseFloat(odds) ? "green block":"red block";
+	}
+
+	$scope.searchOdds = function() {
+		if ($scope.selectedRegion == undefined || $scope.selectedSport == undefined) {
+			alert("Must select region AND sport");
+		}
+		let region = $scope.selectedRegion['value'];
+		let sport = $scope.selectedSport['sport'];
 		$.ajax({
-                        type: "GET",
-                        data: {region, sport, csrfmiddlewaretoken: '{{ csrf_token }}'},
-                        //dataType: "json",
-                        url: 'ajax/requestOdds/',
-                        success: function(data) {
-                                console.log(data);
-                        },
-                        error: function(data) {
-                                console.log("error: "+ data);
+			type: "GET",
+			data: {region, sport, csrfmiddlewaretoken: '{{ csrf_token }}'},
+			dataType: "json",
+			url: 'ajax/requestOdds/',
+			success: function(data) {
+				$scope.events = data['data']['events'];
+				$scope.$apply();
+			},
+			error: function(data) {
+				console.log("error: "+ data);
 				console.log(data.status, data.statusText, data.responseText);
-                        }
-                });
-	});
+			}
+		});
 
+}
+angular.element(document).ready(function () {
 });
+});
+
 		</script>
 	</body>
-
 </html>
