@@ -14,7 +14,6 @@ def init(request):
     return HttpResponse(json.dumps(response), content_type='application/json')
 
 def requestOdds(request):
-    print ("test")
     sport = request.GET['sport']
     region = request.GET['region']
     response = get_odds(sport, region)
@@ -29,7 +28,6 @@ def requestOdds(request):
             cnt += 1
             for k in range(3):
                 a[k] += float(odds[k])
-                print (k, a[k])
         for k in range(3):
             a[k] /= cnt
             a[k] = 1/a[k]
